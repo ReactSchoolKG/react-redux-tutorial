@@ -1,33 +1,26 @@
 import { 
-  DECREMENT,
-  INCREMENT,
-  RESET_COUNTER,
+  ENTER_TEXT,
+  RESET_INPUT, 
 } from '../actions/actionTypes';
 
 const initialState = {
-  value: 0,
-};
+  value: ``,
+}
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case INCREMENT:
+    case ENTER_TEXT:
       return {
         ...state,
-        value: ++state.value,
+        value: action.value,
       };
-
-    case DECREMENT:
+     
+    case RESET_INPUT:
       return {
         ...state,
-        value: --state.value,
-      };
-
-    case RESET_COUNTER:
-      return {
-        ...state,
-        value: 0,
-      };
+        value: ``,
+      }  
       
     default: return state;
   }
-};
+}

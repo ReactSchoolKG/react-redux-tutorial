@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-import './App.css';
+import { Provider } from 'react-redux';
+import { ConnectedRouter } from 'react-router-redux';
+
 import Home from "./components/Home";
-import { Provider } from 'react-redux'
-import { ConnectedRouter } from 'react-router-redux'
 import store, {history} from "./store";
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
-        <Provider store={store}>
-          <ConnectedRouter history={history}>
-            <div className='app-container'>
-              <Home/>
-            </div>
-          </ConnectedRouter>
-        </Provider>
+      <Provider store={store}>
+        <ConnectedRouter history={history}>
+          <div className='app-container'>
+            <Home />
+          </div>
+        </ConnectedRouter>
+      </Provider>
     );
   }
 }
-
-export default App;
