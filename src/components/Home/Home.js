@@ -27,7 +27,7 @@ class Home extends Component {
       resetInput,
     } = this.props;
 
-    console.log(this.props);
+    //console.log(this.props);
 
     return (
       <div className="home-container">
@@ -43,7 +43,7 @@ class Home extends Component {
             <Input 
               counter={counter}
               input={input}
-              enterText={enterText}
+              enterText={text => enterText(text)}
               resetInput={resetInput}
             />
         </div>
@@ -63,7 +63,7 @@ const mapDispatchToProps = dispatch => bindActionCreators(
     increment,
     decrement,
     resetCounter,
-    enterText: text => enterText(text),
+    enterText,
     resetInput,
   },
 dispatch);
