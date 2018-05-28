@@ -2,13 +2,12 @@ import React, {Component} from 'react';
 import './Input.css'
 
 export default class Input extends Component {
-  handleChange = e => this.props.enterText(e.target.value);
-
   render() {
     const { 
       counter,
       input,
-      resetInput,
+      enter,
+      enterText,
     } = this.props;
 
     return (
@@ -18,7 +17,7 @@ export default class Input extends Component {
         </div>
         <input 
           value={input.value}
-          onChange={this.handleChange}
+          onChange={e => enterText(e.target.value)}
         />
         <div>
           <span style={{color: `#000`}}>You've entered next text: </span>
