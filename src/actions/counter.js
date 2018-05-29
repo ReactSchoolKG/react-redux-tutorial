@@ -1,5 +1,5 @@
-import {COUNTER_TOGGLE, DECREMENT, INCREMENT} from "./actionTypes";
-import {INC} from "../constants/asyncChange";
+import { COUNTER_TOGGLE, DECREMENT, INCREMENT } from "./actionTypes";
+import { INC } from "../constants/asyncChange";
 
 export const increment = () => ({
     type: INCREMENT
@@ -24,6 +24,6 @@ export const asyncChange = (t) => {
               dispatch(decrement());
           }
           dispatch(counterToggle());
-      }, 2000);
+      }, 5000);
     };
 };

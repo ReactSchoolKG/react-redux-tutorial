@@ -8,6 +8,7 @@ class Counter extends React.Component {
         this._increment = this._increment.bind(this);
         this._decrement = this._decrement.bind(this);
         this._async = this._async.bind(this);
+        this._toggle = this._toggle.bind(this);
     }
 
     render () {
@@ -21,6 +22,7 @@ class Counter extends React.Component {
             <br/>
             <button disabled={this.props.counter.asyncCallRunning} onClick={() => this._async(INC)}>Async +</button>
             <button disabled={this.props.counter.asyncCallRunning} onClick={() => this._async(DEC)}>Async -</button>
+            <button onClick={this._toggle}>T</button>
         </div>);
     }
 
@@ -34,6 +36,10 @@ class Counter extends React.Component {
 
     _async (c) {
         this.props.asyncChange(c);
+    }
+
+    _toggle () {
+        this.props.toggle();
     }
 }
 

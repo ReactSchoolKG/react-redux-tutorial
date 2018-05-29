@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Input from "../Input";
 import Counter from "../Counter";
 import { bindActionCreators } from 'redux'
-import { increment, decrement, asyncChange } from "../../actions/counter";
+import { increment, decrement, asyncChange, counterToggle } from "../../actions/counter";
 
 
 class Home extends React.Component {
@@ -15,6 +15,7 @@ class Home extends React.Component {
                     increment={this.props.increment}
                     decrement={this.props.decrement}
                     asyncChange={this.props.asyncChange}
+                    toggle={this.props.counterToggle}
                 />
             </div>
             <div className='input-part'>
@@ -31,7 +32,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => bindActionCreators({
     increment,
     decrement,
-    asyncChange
+    asyncChange,
+    counterToggle
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps) (Home);
