@@ -1,7 +1,8 @@
-import { DECREMENT, INCREMENT } from "../actions/actionTypes";
+import {ASYNC_CHANGE, COUNTER_TOGGLE, DECREMENT, INCREMENT} from "../actions/actionTypes";
 
 const initialState = {
-    value: 0
+    value: 0,
+    asyncCallRunning: false
 };
 
 export default (state = initialState, action) => {
@@ -16,6 +17,12 @@ export default (state = initialState, action) => {
                 ...state,
                 value: state.value - 1
             };
+        }
+        case COUNTER_TOGGLE: {
+            return {
+                ...state,
+                asyncCallRunning: !state.asyncCallRunning
+            }
         }
         default: return state;
     }

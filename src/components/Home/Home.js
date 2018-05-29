@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Input from "../Input";
 import Counter from "../Counter";
 import { bindActionCreators } from 'redux'
-import { increment, decrement } from "../../actions/counter";
+import { increment, decrement, asyncChange } from "../../actions/counter";
 
 
 class Home extends React.Component {
@@ -11,9 +11,10 @@ class Home extends React.Component {
         console.log(this.props);
         return (<div className='home-container'>
             <div className='counter-part'>
-                <Counter value={this.props.counter.value}
+                <Counter counter={this.props.counter}
                     increment={this.props.increment}
                     decrement={this.props.decrement}
+                    asyncChange={this.props.asyncChange}
                 />
             </div>
             <div className='input-part'>
@@ -29,7 +30,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
     increment,
-    decrement
+    decrement,
+    asyncChange
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps) (Home);
