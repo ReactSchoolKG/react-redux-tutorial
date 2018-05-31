@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
 import Input from "../Input";
 import Counter from "../Counter";
 import { bindActionCreators } from 'redux'
@@ -21,6 +22,7 @@ class Home extends React.Component {
             <div className='input-part'>
                 <Input counter={this.props.counter}/>
             </div>
+            <button onClick={() => this.props.changePage()}>to example</button>
         </div>);
     }
 }
@@ -33,7 +35,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     increment,
     decrement,
     asyncChange,
-    counterToggle
+    counterToggle,
+    changePage: () => push('/example')
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps) (Home);
